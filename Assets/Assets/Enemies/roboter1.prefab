@@ -5048,6 +5048,12 @@ GameObject:
   - component: {fileID: 5993649615653332710}
   - component: {fileID: 2417606310012458314}
   - component: {fileID: 4703787754761201711}
+  - component: {fileID: 4586735241682464891}
+  - component: {fileID: 5054170822980382775}
+  - component: {fileID: 5255422534996854101}
+  - component: {fileID: 6416370071768805090}
+  - component: {fileID: 3492488279095482475}
+  - component: {fileID: 3807136312927923779}
   m_Layer: 0
   m_Name: roboter1
   m_TagString: Enemy
@@ -5105,10 +5111,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  CR_running: 0
-  regenerationValue: 0
-  imageBlutAlpha: {fileID: 0}
-  percentage: 0
+--- !u!54 &4586735241682464891
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369893335298751580}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &5054170822980382775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369893335298751580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2879bc31b0b86ac40aa7f22a9eaea4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitSpeed: 3
+  spawnBoostSpeed: 20
+  target: {fileID: 0}
+  RotationSpeed: 30
+--- !u!65 &5255422534996854101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369893335298751580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.42, y: 4.56, z: 2.21}
+  m_Center: {x: 0, y: -0.81, z: 0}
+--- !u!114 &6416370071768805090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369893335298751580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7595983ffad77449e0d25a9ea02619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &3492488279095482475
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369893335298751580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3807136312927923779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369893335298751580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5670bc12144a92c45a2ec6eaef11457b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectHpSkript: {fileID: 0}
+  damageAmount: 1
+  continueCoroutine: 1
 --- !u!1 &6857683024777261929
 GameObject:
   m_ObjectHideFlags: 0
@@ -5217,7 +5304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8098752242825973136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.41, y: 0, z: 0}
+  m_LocalPosition: {x: -4.41, y: -2.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

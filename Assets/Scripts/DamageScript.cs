@@ -4,29 +4,46 @@ using UnityEngine;
 
 public class DamageScript : MonoBehaviour
 {
-    [SerializeField] UnitHPSkript hpScript;
+    //Dieses Skript sorgt dafür, das Objekte (z.B. Türm) schaden erleiden können
+    PlayerHP hpScript;
+    [SerializeField] UnitHPSkript objectHpSkript;
 
     public int damageAmount;
 
-    bool continueCoroutine = true;
+    [SerializeField] bool continueCoroutine = true;
     void OnTriggerEnter(Collider other)
     {
         
         if(other.tag == "Player")
         {
-            hpScript = other.GetComponent<UnitHPSkript>();
-            continueCoroutine = true;
+            hpScript = other.GetComponent<PlayerHP>();
+            
             StartCoroutine(DoingDamageCycle(damageAmount));
             
             
-        }        
+        }
+        if(other.tag == "Tower" || other.tag == "Wall")
+        {
+            
+            objectHpSkript = other.GetComponent<UnitHPSkript>();
+            continueCoroutine = true;
+            Debug.Log("Tower bekam dmg");
+            StartCoroutine(DoingDamageCycle(damageAmount));
+        }
+
     }
     void OnTriggerExit(Collider other)
     {
+        if(other.tag == "Tower" || other.tag == "Wall")
+        {
+            StopCoroutine(DoingDamageCycle(damageAmount));
+            Debug.Log("taking" + damageAmount + " damage stopped");
+            continueCoroutine = false;
+        }
         //Wenn das Objekt wieder raus geht, wird der kontinuierliche Schaden beendet.
-        StopCoroutine(DoingDamageCycle(damageAmount));
-        continueCoroutine = false;
-        Debug.Log("taking" + damageAmount + " damage stopped");
+        
+        
+        
     }
     
     /*
@@ -45,7 +62,8 @@ public class DamageScript : MonoBehaviour
         Debug.Log("Routine started");
         while(continueCoroutine)
         {
-            hpScript.DamageTaken(dealingdamage);
+            
+            objectHpSkript.DamageTaken(dealingdamage);
             yield return new WaitForSecondsRealtime(1f);
         }
         

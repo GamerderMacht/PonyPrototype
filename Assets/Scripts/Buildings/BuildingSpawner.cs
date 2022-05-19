@@ -19,10 +19,10 @@ public class BuildingSpawner : MonoBehaviour
 
 
     private void OnEnable() {
-        wheelParts[0] = GameObject.Find("Interface").gameObject.transform.GetChild(1).GetChild(1).GetChild(0).gameObject;
-        wheelParts[1] = GameObject.Find("Interface").gameObject.transform.GetChild(1).GetChild(1).GetChild(1).gameObject;
-        wheelParts[2] = GameObject.Find("Interface").gameObject.transform.GetChild(1).GetChild(1).GetChild(2).gameObject;
-        wheelParts[3] = GameObject.Find("Interface").gameObject.transform.GetChild(1).GetChild(1).GetChild(3).gameObject;
+        wheelParts[0] = GameObject.Find("WheelOben");
+        wheelParts[1] = GameObject.Find("WheelRechts");
+        wheelParts[2] = GameObject.Find("WheelUnten");
+        wheelParts[3] = GameObject.Find("WheelLinks");
     }
     private void OnTriggerStay(Collider other)
     {
@@ -78,10 +78,10 @@ public class BuildingSpawner : MonoBehaviour
     if (other.tag == "Player" && !hasObjectStanding)
     {
         player = GameObject.Find("Player").GetComponent<FPSController>();
-        Debug.Log(player);
+        
 
-        wheel = GameObject.Find("Interface").gameObject.transform.GetChild(1).GetChild(1).GetComponent<WheelManager>();
-        Debug.Log(wheel);
+        wheel = GameObject.Find("WheelHUD").GetComponent<WheelManager>();
+        
       
 
 

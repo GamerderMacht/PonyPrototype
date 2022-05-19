@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2143133671355522999}
   - component: {fileID: 7165846177212123338}
   - component: {fileID: 6102782891065549603}
+  - component: {fileID: 4190728214243766214}
   m_Layer: 0
   m_Name: Tower_base
   m_TagString: Untagged
@@ -87,6 +88,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4190728214243766214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447749898073806044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6941662, y: 4.626905, z: 2.6941662}
+  m_Center: {x: 0.000000059604645, y: 1.9111656, z: 0.000000059604645}
 --- !u!1 &1317455917249639806
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1607493947849734273}
   - component: {fileID: 4604682069923838400}
+  - component: {fileID: -6123501121158063799}
   m_Layer: 0
   m_Name: Tower_Mage001
   m_TagString: Untagged
@@ -241,3 +256,17 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   projectile: {fileID: 5721516071782704538, guid: c339a66c643bf804bbf39b41b08a7e89, type: 3}
   bulletSpawner: {fileID: 5494666440441554475}
+--- !u!114 &-6123501121158063799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091121127561372219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0

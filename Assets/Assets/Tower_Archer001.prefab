@@ -42,7 +42,9 @@ GameObject:
   - component: {fileID: 5049143210326137660}
   - component: {fileID: 8195974536858932377}
   - component: {fileID: 6222008909156016211}
+  - component: {fileID: 8454573951835135318}
   - component: {fileID: 3691200312317011789}
+  - component: {fileID: -5169973892467754744}
   m_Layer: 0
   m_Name: Tower_Archer001
   m_TagString: Untagged
@@ -119,6 +121,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8454573951835135318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573759049568141702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7684965, y: 6.0036974, z: 2.7659385}
+  m_Center: {x: 0.009237349, y: 2.6188102, z: 0.00012874603}
 --- !u!114 &3691200312317011789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +150,17 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   projectile: {fileID: 4179807844972722467, guid: 20c35bad65470a94f80ae52b42e116eb, type: 3}
   bulletSpawner: {fileID: 251379198394991066}
+--- !u!114 &-5169973892467754744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573759049568141702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 150
+  currentHealth: 0
