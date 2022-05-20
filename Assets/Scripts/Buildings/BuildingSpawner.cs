@@ -9,9 +9,12 @@ public class BuildingSpawner : MonoBehaviour
   
     [SerializeField] GameObject[] placeablePrefabs;
     [SerializeField] int[] placeAbleWheelInts;
+    [SerializeField] public int goldCost;
+    [SerializeField] public int techCost;
     [SerializeField] bool hasObjectStanding;
 
     FPSController player;
+    PlayerInventory playerInventory;
 
     WheelManager wheel;
     private int weaponID;
@@ -28,7 +31,7 @@ public class BuildingSpawner : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Im Baubereich");
+            
             
 
         	if(!hasObjectStanding) ChooseTowerToPlace(WheelManager.weaponID);
@@ -42,31 +45,75 @@ public class BuildingSpawner : MonoBehaviour
     {
         Debug.Log("Choose the Tower");
         
-        switch(id)
+        switch(id) //Id ist der Wheel Int. 0 = nichts ausgewählt
         {
-            case 1:
-            Debug.Log ("Tower Archer placed");
-            Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
-            hasObjectStanding = true;
+            case 1: //Case Tower Archer
+            if(playerInventory.currentGoldAmount >= goldCost)
+            {
+                playerInventory.currentGoldAmount -= goldCost;
+
+                Debug.Log ("Tower Archer placed");
+                Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
+                hasObjectStanding = true;
+                
+                wheel.weaponWheelSelected = false;
+            }
+            else
+            {
+                Debug.Log("nicht genug Cash :(");
+                wheel.weaponWheelSelected = false;
+            }
             
-            wheel.weaponWheelSelected = false;
             break;
-            case 2:
-            Debug.Log ("Tower Mage placed");
-            Instantiate(placeablePrefabs[1], transform.position, Quaternion.identity);
-            hasObjectStanding = true;
+
+            case 2: //Case Tower mage
+            if(playerInventory.currentGoldAmount >= goldCost)
+            {
+                playerInventory.currentGoldAmount -= goldCost;
+
+                Debug.Log ("Tower Mage placed");
+                Instantiate(placeablePrefabs[1], transform.position, Quaternion.identity);
+                hasObjectStanding = true;
+                
+                wheel.weaponWheelSelected = false;
+            }
+            else
+            {
+                Debug.Log("nicht genug Cash :(");
+                wheel.weaponWheelSelected = false;
+            }
+            break;
+
+            case 3: //Case Wall 
+            if(playerInventory.currentGoldAmount >= goldCost)
+            {
+                playerInventory.currentGoldAmount -= goldCost;
+                Debug.Log("Wall placed");
+                Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
+                hasObjectStanding = true;
+                wheel.weaponWheelSelected = false;
+            }
+            else
+            {
+                Debug.Log("nicht genug Cash :(");
+                wheel.weaponWheelSelected = false;
+            }
             
-            wheel.weaponWheelSelected = false;
             break;
-            case 3:
-            Debug.Log("Wall placed");
-            Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
-            hasObjectStanding = true;
-            break;
-            case 4:
-            Debug.Log("Farm placed");
-            Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
-            hasObjectStanding = true;
+            case 4: //Case Farm
+            if(playerInventory.currentGoldAmount >= goldCost)
+            {
+                playerInventory.currentGoldAmount -= goldCost;
+                Debug.Log("Farm placed");
+                Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
+                hasObjectStanding = true;
+                wheel.weaponWheelSelected = false;
+            }
+            else
+            {
+                Debug.Log("nicht genug Cash :(");
+                wheel.weaponWheelSelected = false;
+            }
             break;
         }
 
@@ -77,15 +124,14 @@ public class BuildingSpawner : MonoBehaviour
     {
     if (other.tag == "Player" && !hasObjectStanding)
     {
+        //Nimmt die Components vom Spieler
         player = GameObject.Find("Player").GetComponent<FPSController>();
-        
-
+        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
         wheel = GameObject.Find("WheelHUD").GetComponent<WheelManager>();
         
       
-
-
-        
+        //Für das Wheel. Macht bei TriggerEnter das Wheel nicht interactable, dann geht es durch alle durch. Wenn im Inspector die int Zahl steht, dann wird dieser Wheelpart
+        //interactable. So die Theorie... :)
         for(int i = 0; i < 4; i++)
         {
             wheelParts[i].GetComponent<Button>().interactable = false;
@@ -98,13 +144,15 @@ public class BuildingSpawner : MonoBehaviour
     }
     }
     void OnTriggerExit(Collider other)
+    //Wenn wir es wieder verlassen, soll das Wheel wieder ausgehen
+    //Wenn was platziert wurde. Erscheint dieses Wheel nicht mehr
     {
-    if (other.tag == "Player")
-    {
-        wheel.weaponWheelSelected = false;
-        if(hasObjectStanding) GetComponent<BoxCollider>().enabled = false;
-        
-    }
+        if (other.tag == "Player")
+        {
+            wheel.weaponWheelSelected = false;
+            if(hasObjectStanding) GetComponent<BoxCollider>().enabled = false;
+            
+        }
     }
 
 

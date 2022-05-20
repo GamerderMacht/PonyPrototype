@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6706373428507015}
   - component: {fileID: 4014968948303920674}
   - component: {fileID: 1179098357766818536}
-  - component: {fileID: 5269094376419811168}
   - component: {fileID: 1341599339542417901}
+  - component: {fileID: 3784302991273139754}
   m_Layer: 0
   m_Name: Farm_Wheat001
   m_TagString: Untagged
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5269094376419811168
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818533379726093117}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 137.12515, y: 2.6196308, z: 136.36423}
-  m_Center: {x: 0.5132567, y: -3.5492227, z: -0.8756763}
 --- !u!65 &1341599339542417901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,8 +94,22 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818533379726093117}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 137.12515, y: 43.991074, z: 136.36421}
-  m_Center: {x: 0.5132561, y: 17.136509, z: -0.875679}
+  m_Size: {x: 137.12515, y: 81.9, z: 136.36421}
+  m_Center: {x: 0.5132561, y: 29.7, z: -0.875679}
+--- !u!114 &3784302991273139754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818533379726093117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d9ee98617130f4c952f3fafec9b710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitForNextGoldToProduce: 3
+  amountOfGoldFromFarm: 15
