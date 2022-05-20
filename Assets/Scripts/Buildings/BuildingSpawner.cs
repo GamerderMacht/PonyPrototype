@@ -26,7 +26,7 @@ public class BuildingSpawner : MonoBehaviour
         wheelParts[1] = GameObject.Find("WheelRechts");
         wheelParts[2] = GameObject.Find("WheelUnten");
         wheelParts[3] = GameObject.Find("WheelLinks");
-    }
+    } 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")

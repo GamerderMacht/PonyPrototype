@@ -18,10 +18,6 @@ public int currentHealth;
         currentHealth = maxHealth;
               
     }
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void DamageTaken(int damageAmount)
     {
@@ -34,8 +30,5 @@ public int currentHealth;
             Debug.Log("Tod");
             Destroy(gameObject, 0.5f);
         }
-        
-        
-    
     }
 }

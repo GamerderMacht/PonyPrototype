@@ -95,5 +95,13 @@ PrefabInstance:
       propertyPath: placeablePrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 2883965181171181920, guid: af50201aa8db6c241a56a1cd30257cdd, type: 3}
+    - target: {fileID: 7087387049197971055, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971055, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: m_Size.z
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b583fa641dc686499154690463e2322, type: 3}

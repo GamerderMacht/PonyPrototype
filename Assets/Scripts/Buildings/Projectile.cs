@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {   
     [Header("Generelle Attribute")]
-    private Transform target;
+    public GameObject target;
     public float speed = 10f;
     public int damagePerHit = 2;
 
@@ -13,58 +13,78 @@ public class Projectile : MonoBehaviour
     public bool isAoEProjectile = false;
     public float aoERange = 5;
 
-
     bool hit = false;
 
     UnitHPSkript hPSkript;
-
-    public void Seek(Transform _target)
+                                                                                             /*
+                                                                                              * Enemies werden in ShootController.cs getrackt 
+                                                                                              * und ueber Seek() an Projectile.cs gepassed
+                                                                                              */
+    public void Seek(GameObject _target)
     {
         target = _target;
     }
 
     void Update()
     {
+        /*
+         * Falls kein Target vorhanden ist, werden Projectiles zerstört
+         */
+                                                                                        
         if (target == null)                                        
         {
             Destroy(gameObject);
             return;
         }
 
-        Vector3 direction = target.position - transform.position;
-        float speedProFrame = speed * Time.deltaTime;
+        /*
+         * Hier wir Richtung und Geschwindigkeit des Pj. berrechnet
+         * Translate() bewegt das Pj nach vorne in Richtung direction
+         * LookAt() rotiert das Pj immer Richtung target
+         */
 
+        Vector3 direction = target.transform.position - transform.position;
+        float speedProFrame = speed * Time.deltaTime;
         transform.Translate(direction.normalized * speedProFrame, Space.World);
-        transform.LookAt(target);
+        transform.LookAt(target.transform);
+
+        /*
+         * Fuer Single Targets
+         * sollte das Pj im nächsten Frame das target erreichen 
+         * fuehre HitShit() aus
+         */
 
         if(direction.magnitude <= speedProFrame && isAoEProjectile == false)
-        {
-            Debug.Log(target.gameObject.name);
-            HitShit(target.gameObject);
-        }
+            HitShit(target);
+        
+        
+                                                                                             /*
+                                                                                              * fuer Multi target 
+                                                                                              * alle collider in der AoERange werden in allCollider gespeichert
+                                                                                              * 
+                                                                                              */
 
-        else if (direction.magnitude <= speedProFrame && isAoEProjectile == true)
+        if (direction.magnitude <= speedProFrame && isAoEProjectile == true)
         {
             Collider[] allCollider = Physics.OverlapSphere(target.transform.position, aoERange);
-            Debug.Log(allCollider);
 
             foreach (Collider collider in allCollider)
             {
-                if (collider.tag == "Enemy" && !hit)
+                if (collider.tag == "Enemy")
                 {
                     Debug.LogFormat("Gegner getroffen " + collider.gameObject.name);
                     HitShit(collider.gameObject);
-                    hit = true;
+                    Debug.Log(this.gameObject.name);
                 }
             }
+
         }
     }
 
-    void HitShit(GameObject gO)
+    void HitShit(GameObject gO)                                                 
     {
-        gO.GetComponent<UnitHPSkript>().DamageTaken(damagePerHit); 
-        
-        GameObject.Destroy(this.gameObject);
+        gO.GetComponent<UnitHPSkript>().DamageTaken(damagePerHit);
+        target = null;
     }
 
 

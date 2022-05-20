@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982131dbb3dde9943ac930313b13d3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   speed: 10
   damagePerHit: 1
   isAoEProjectile: 1
-  aoERange: 3
+  aoERange: 15

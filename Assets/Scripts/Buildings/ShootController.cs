@@ -6,7 +6,7 @@ public class ShootController : MonoBehaviour
 {
     [Header("Target Tracking")]
     public float range = 10;
-    public Transform currentTarget;
+    public GameObject currentTarget;
     [Header("Shooting")]
     float fireRate = 1f;
     float fireCooldown = 0f;
@@ -48,7 +48,7 @@ public class ShootController : MonoBehaviour
             }
         }
         if (nearestEnemy != null && shortestDistance <= range)
-            currentTarget = nearestEnemy.transform;
+            currentTarget = nearestEnemy;
         else
             currentTarget = null;
     }
