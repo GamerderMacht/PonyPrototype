@@ -13,8 +13,6 @@ public class Projectile : MonoBehaviour
     public bool isAoEProjectile = false;
     public float aoERange = 5;
 
-    bool hit = false;
-
     UnitHPSkript hPSkript;
                                                                                              /*
                                                                                               * Enemies werden in ShootController.cs getrackt 
