@@ -17,15 +17,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.33044243
+      value: 16.84
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 346.1
+      value: -24.762787
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.453505
+      value: 18.14
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.w
@@ -72,17 +72,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: goldCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: wheelParts.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: placeablePrefabs.Array.size
-      value: 5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: placeAbleWheelInts.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: placeablePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2883965181171181920, guid: af50201aa8db6c241a56a1cd30257cdd, type: 3}
     - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: placeablePrefabs.Array.data[1]
       value: 
@@ -95,5 +103,9 @@ PrefabInstance:
       propertyPath: placeablePrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 2883965181171181920, guid: af50201aa8db6c241a56a1cd30257cdd, type: 3}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: placeAbleWheelInts.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b583fa641dc686499154690463e2322, type: 3}
