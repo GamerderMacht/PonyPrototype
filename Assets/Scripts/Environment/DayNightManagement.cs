@@ -55,6 +55,12 @@ public class DayNightManagement : MonoBehaviour
         {
             UpdateLighting(TimeOfDay / 24f);
         }
+
+        if(TimeOfDay < 0.01 && TimeOfDay > 0)
+        {
+            ObjectPool.Wave++;
+            Debug.Log("Current wave" +ObjectPool.Wave);
+        }
     }
 
     private void UpdateLighting(float timePercent)

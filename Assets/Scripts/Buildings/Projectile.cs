@@ -63,7 +63,7 @@ public class Projectile : MonoBehaviour
     void HitShit(GameObject gO)
     {
         gO.GetComponent<UnitHPSkript>().DamageTaken(damagePerHit); 
-        Debug.LogFormat("Hit " + gO.name + gO.GetComponent<UnitHPSkript>().currentHealth);
+        
         GameObject.Destroy(this.gameObject);
     }
 
