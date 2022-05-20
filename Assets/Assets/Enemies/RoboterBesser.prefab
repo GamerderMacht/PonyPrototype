@@ -179,11 +179,11 @@ GameObject:
   - component: {fileID: 3338306271241828841}
   - component: {fileID: -5702153671750881858}
   - component: {fileID: -7168337020620979508}
-  - component: {fileID: 4709166300956727580}
   - component: {fileID: 6005703004551402754}
   - component: {fileID: 3263011387231567599}
   - component: {fileID: -8936202424515847987}
   - component: {fileID: -5193359500590556670}
+  - component: {fileID: 3775232113723111938}
   m_Layer: 0
   m_Name: RoboterBesser
   m_TagString: Untagged
@@ -229,7 +229,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ad8542afa4080c549a681c9da819629f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -264,20 +264,6 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &4709166300956727580
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6624512486570438557}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6005703004551402754
 MonoBehaviour:
@@ -333,10 +319,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2879bc31b0b86ac40aa7f22a9eaea4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSpeed: 3
-  spawnBoostSpeed: 1
+  unitSpeed: 0.4
+  spawnBoostSpeed: 3
   target: {fileID: 0}
   RotationSpeed: 40
+--- !u!65 &3775232113723111938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6624512486570438557}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.48, y: 6.21, z: 1}
+  m_Center: {x: 0, y: 1.78, z: 0}
 --- !u!1 &6675448864379805864
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boom
       objectReference: {fileID: 0}
+    - target: {fileID: 7694249719449422685, guid: 0bff15d675c4851459c47c90249e2957, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9026455042538802480, guid: 0bff15d675c4851459c47c90249e2957, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -574,6 +577,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5811103321760199975}
     m_Modifications:
+    - target: {fileID: 5167608949820253340, guid: 407e71ded44df624ca0855a4fd19507c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5167608949820253340, guid: 407e71ded44df624ca0855a4fd19507c, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 10
@@ -643,6 +650,10 @@ PrefabInstance:
     - target: {fileID: 3504804474574485921, guid: 6f11b73b891c6f74982312fddec4c55a, type: 3}
       propertyPath: m_Name
       value: Boom part 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227551678201484555, guid: 6f11b73b891c6f74982312fddec4c55a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6640417356677984223, guid: 6f11b73b891c6f74982312fddec4c55a, type: 3}
       propertyPath: m_RootOrder
@@ -826,6 +837,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5811103321760199975}
     m_Modifications:
+    - target: {fileID: 5167608949820253340, guid: 407e71ded44df624ca0855a4fd19507c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5167608949820253340, guid: 407e71ded44df624ca0855a4fd19507c, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 10
