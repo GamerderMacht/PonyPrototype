@@ -110,8 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd27beeef67497468f5ca9a17d883e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 919132149155446097, guid: 68d34fb7f41ae554eb90d6c7b00bc17a, type: 3}
-  towerAOE: {fileID: 1539294247262134558, guid: 71d92d37ec9ac4c469f9a91a778fa039, type: 3}
-  hasTurretStanding: 0
-  player: {fileID: 0}
-  wheel: {fileID: 0}
+  placeablePrefabs: []
+  placeAbleWheelInts: 
+  goldCost: 0
+  techCost: 0
+  hasObjectStanding: 0
+  wheelParts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
