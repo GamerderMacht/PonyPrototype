@@ -59,7 +59,7 @@ public class DayNightManagement : MonoBehaviour
         if(TimeOfDay < 0.01 && TimeOfDay > 0)
         {
             ObjectPool.Wave++;
-            Debug.Log("Current wave" +ObjectPool.Wave);
+            Debug.Log("Current wave" + ObjectPool.Wave);
         }
     }
 

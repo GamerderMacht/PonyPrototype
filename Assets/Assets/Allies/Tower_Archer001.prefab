@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: -5169973892467754744}
   m_Layer: 0
   m_Name: Tower_Archer001
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895123e6e32542b4a98d5078de1c4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 40
   currentTarget: {fileID: 0}
   projectile: {fileID: 4179807844972722467, guid: 20c35bad65470a94f80ae52b42e116eb, type: 3}
   bulletSpawner: {fileID: 251379198394991066}
@@ -163,4 +163,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 150
+  wavebonusHP: 0
   currentHealth: 0

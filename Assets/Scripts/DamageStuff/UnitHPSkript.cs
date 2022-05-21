@@ -12,9 +12,11 @@ public int currentHealth;
         
     void Start()
     {
-        wavebonusHP = ObjectPool.Wave * 5;
-        
-        maxHealth = maxHealth + wavebonusHP;
+        if(gameObject.tag == "Enemy")
+        {
+            wavebonusHP = ObjectPool.Wave * 5;
+            maxHealth = maxHealth + wavebonusHP;
+        } 
         currentHealth = maxHealth;
               
     }

@@ -45,8 +45,17 @@ void Start()
         
        
         
+        if(target == null)
+        {
+            Debug.Log("Wieder zur Burg");
+            target = GameObject.Find("Castle").transform;
+            
+        }
         
-        target = GameObject.Find("Castle").transform;
+        
+    }
+    void LateUpdate()
+    {
         
     }
     
@@ -58,7 +67,7 @@ void Start()
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
 
         //move the enemy with velocity v1.0
-        rbEnemy.AddRelativeForce( Vector3.forward * currentSpeed, ForceMode.Impulse);
+        rbEnemy.AddRelativeForce( Vector3.forward * currentSpeed);
     }
    
 
@@ -68,14 +77,19 @@ void Start()
         if(other.tag == "Tower")
         {
             Debug.Log("other is Tower");
-            if(GetComponent<SphereCollider>()) GetComponent<SphereCollider>().enabled = false;
             target = other.gameObject.transform;
+            
         }
         if(other.tag == "Wall")
         {
             Debug.Log("other is Wall");
             target = other.gameObject.transform;
         }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Wieder zur Burg");
+        target = GameObject.Find("Castle").transform;
     }
 
    

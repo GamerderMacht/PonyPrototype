@@ -183,10 +183,10 @@ GameObject:
   - component: {fileID: 3263011387231567599}
   - component: {fileID: -8936202424515847987}
   - component: {fileID: -5193359500590556670}
-  - component: {fileID: 3775232113723111938}
+  - component: {fileID: 5794539879295348258}
   m_Layer: 0
   m_Name: RoboterBesser
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +198,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6624512486570438557}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -263,7 +263,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 40
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6005703004551402754
 MonoBehaviour:
@@ -289,9 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5670bc12144a92c45a2ec6eaef11457b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectHpSkript: {fileID: 0}
   damageAmount: 2
-  continueCoroutine: 0
+  attackRate: 1
 --- !u!114 &-8936202424515847987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,12 +318,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2879bc31b0b86ac40aa7f22a9eaea4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSpeed: 0.4
-  spawnBoostSpeed: 3
+  unitSpeed: 150
+  spawnBoostSpeed: 300
   target: {fileID: 0}
-  RotationSpeed: 40
---- !u!65 &3775232113723111938
-BoxCollider:
+  RotationSpeed: 0.5
+--- !u!135 &5794539879295348258
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -334,8 +333,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.48, y: 6.21, z: 1}
-  m_Center: {x: 0, y: 1.78, z: 0}
+  m_Radius: 3.25
+  m_Center: {x: 0, y: 1.57, z: 0}
 --- !u!1 &6675448864379805864
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,11 +804,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5947189135327586864, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5947189135327586864, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5947189135327586864, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -822,6 +821,58 @@ PrefabInstance:
     - target: {fileID: 5947189135327586864, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973797368279628247, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973797368279628247, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: m_NormalDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: ShapeModule.type
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: emitterVelocityMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: moveWithCustomTransform
+      value: 
+      objectReference: {fileID: 5811103321760199975}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 3.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739145299948176051, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
+      propertyPath: ClampVelocityModule.multiplyDragByParticleVelocity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f2a9cf58eea044aabed19db850ee20, type: 3}
