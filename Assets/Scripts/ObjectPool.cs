@@ -5,8 +5,10 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject[] enemyPrefab;
+    [SerializeField] Transform spawnPoint;
     [SerializeField] int poolSize = 5;
+    [SerializeField] int enemiesYetToSpawn;
     [SerializeField] float spawnTimer = 1f;
     [SerializeField] public static int Wave;
 
@@ -14,41 +16,35 @@ public class ObjectPool : MonoBehaviour
 
     void Awake()
     {
-        PopulatePool();
+        
     }
-    void Start()
+    void OnEnable()
     {
+        enemiesYetToSpawn = poolSize + (Wave * 2);
         StartCoroutine(SpawnEnemy());
+
     }
 
-    void PopulatePool()
-    {
-        pool = new GameObject[poolSize];
-
-        for(int i = 0; i < pool.Length; i++)
-        {
-            pool[i] = Instantiate(enemyPrefab, transform);
-            pool[i].SetActive(false);
-            
-        }
-    }
-    void EnableObjectInPool()
-    {
-        for(int i = 0; i< pool.Length; i++)
-        {
-            if(pool[i].activeInHierarchy == false)
-            {
-                pool[i].SetActive(true);
-                return;
-            }
-        }
-    }
+   
+ 
 
     IEnumerator SpawnEnemy()
     {
-        while(true)
+       
+        while(enemiesYetToSpawn > 0)
         {
-            EnableObjectInPool();
+            
+            //Ab Tag 3 kommen neue hinzu
+            if(enemyPrefab.Length > 1) /*  --->   */ if(Wave >= 3)
+            {
+                
+                enemiesYetToSpawn--;
+                Instantiate(enemyPrefab[1], spawnPoint.position, enemyPrefab[1].transform.localRotation);
+                yield return new WaitForSeconds(spawnTimer);
+            }
+            //Spawn Standard enemy
+            enemiesYetToSpawn--;
+            Instantiate(enemyPrefab[0], spawnPoint.position, enemyPrefab[0].transform.localRotation);
             yield return new WaitForSeconds(spawnTimer);
         }
     }

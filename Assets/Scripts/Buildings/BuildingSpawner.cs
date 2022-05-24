@@ -15,13 +15,14 @@ public class BuildingSpawner : MonoBehaviour
 
     FPSController player;
     PlayerInventory playerInventory;
-
+    MeshRenderer meshRenderer;
     WheelManager wheel;
     private int weaponID;
     [SerializeField] GameObject[] wheelParts = new GameObject[4];
 
 
     private void OnEnable() {
+        meshRenderer = GetComponent<MeshRenderer>();
         wheelParts[0] = GameObject.Find("WheelOben");
         wheelParts[1] = GameObject.Find("WheelRechts");
         wheelParts[2] = GameObject.Find("WheelUnten");
@@ -31,7 +32,14 @@ public class BuildingSpawner : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            
+            //Wenn das Gebäude wieder weg ist
+            if(this.gameObject.transform.childCount == 0)
+            {
+                //man kann wieder platzieren
+                //Die Baustelle ist wieder sichtbar
+                hasObjectStanding = false;
+                meshRenderer.enabled = true;
+            } 
             
 
         	if(!hasObjectStanding) ChooseTowerToPlace(WheelManager.weaponID);
@@ -52,8 +60,9 @@ public class BuildingSpawner : MonoBehaviour
             {
                 playerInventory.currentGoldAmount -= goldCost;
 
+                meshRenderer.enabled = false;
                 Debug.Log ("Tower Archer placed");
-                Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
+                Instantiate(placeablePrefabs[0], gameObject.transform.position, gameObject.transform.rotation);
                 hasObjectStanding = true;
                 
                 wheel.weaponWheelSelected = false;
@@ -71,8 +80,9 @@ public class BuildingSpawner : MonoBehaviour
             {
                 playerInventory.currentGoldAmount -= goldCost;
 
+                meshRenderer.enabled = false;
                 Debug.Log ("Tower Mage placed");
-                Instantiate(placeablePrefabs[1], transform.position, Quaternion.identity);
+                Instantiate(placeablePrefabs[1], gameObject.transform.position, gameObject.transform.rotation);
                 hasObjectStanding = true;
                 
                 wheel.weaponWheelSelected = false;
@@ -88,8 +98,10 @@ public class BuildingSpawner : MonoBehaviour
             if(playerInventory.currentGoldAmount >= goldCost)
             {
                 playerInventory.currentGoldAmount -= goldCost;
+
+                meshRenderer.enabled = false;
                 Debug.Log("Wall placed");
-                Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
+                Instantiate(placeablePrefabs[0], gameObject.transform.position, gameObject.transform.rotation);
                 hasObjectStanding = true;
                 wheel.weaponWheelSelected = false;
             }
@@ -104,8 +116,10 @@ public class BuildingSpawner : MonoBehaviour
             if(playerInventory.currentGoldAmount >= goldCost)
             {
                 playerInventory.currentGoldAmount -= goldCost;
+
+                meshRenderer.enabled = false;
                 Debug.Log("Farm placed");
-                Instantiate(placeablePrefabs[0], transform.position, Quaternion.identity);
+                Instantiate(placeablePrefabs[0], gameObject.transform.position, gameObject.transform.rotation);
                 hasObjectStanding = true;
                 wheel.weaponWheelSelected = false;
             }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2248805041334541446}
   m_Layer: 0
   m_Name: Wall_Asset
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,8 +25,8 @@ Transform:
   m_GameObject: {fileID: 2883965181171181920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6936507, y: 0.82581496, z: 2.7394967}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 609546206908955700}
   - {fileID: 6737127920267412884}
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 250
+  wavebonusHP: 0
   currentHealth: 0
 --- !u!4 &609546206908955700 stripped
 Transform:
@@ -253,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 500
+  wavebonusHP: 0
   currentHealth: 0
 --- !u!4 &6737127920267412884 stripped
 Transform:

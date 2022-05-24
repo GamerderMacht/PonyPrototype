@@ -6,11 +6,12 @@ public class DamageScript : MonoBehaviour
 {
     //Dieses Skript sorgt dafür, das Objekte (z.B. Türm) schaden erleiden können
     PlayerHP hpScript;
-    [SerializeField] UnitHPSkript objectHpSkript;
+    UnitHPSkript objectHpSkript;
 
     public int damageAmount;
+    public int attackRate;
 
-    [SerializeField] bool continueCoroutine = true;
+    bool continueCoroutine = true;
     void OnTriggerEnter(Collider other)
     {
         
@@ -63,8 +64,8 @@ public class DamageScript : MonoBehaviour
         while(continueCoroutine)
         {
             
-            objectHpSkript.DamageTaken(dealingdamage);
-            yield return new WaitForSecondsRealtime(1f);
+            if(objectHpSkript != null) objectHpSkript.DamageTaken(dealingdamage);
+            yield return new WaitForSecondsRealtime(attackRate);
         }
         
         
