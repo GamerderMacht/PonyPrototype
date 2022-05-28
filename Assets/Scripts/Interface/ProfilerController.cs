@@ -22,6 +22,7 @@ public class ProfilerController : MonoBehaviour
     ProfilerRecorder drawCallsCountRecorder;
     ProfilerRecorder vertices;
     ProfilerRecorder triangles;
+    
 
     static double GetRecorderFrameAverage(ProfilerRecorder recorder)
     {
@@ -39,7 +40,7 @@ public class ProfilerController : MonoBehaviour
         return r;
     }
 
-    void OnEnable()
+    void StartIt()
     {
         systemMemoryRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Memory, "System Used Memory");
         gcMemoryRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Memory, "GC Reserved Memory");
@@ -62,19 +63,32 @@ public class ProfilerController : MonoBehaviour
 
     void Update()
     {
-        var sb = new StringBuilder(500);
-        sb.AppendLine($"Frame Time: {GetRecorderFrameAverage(mainThreadTimeRecorder) * (1e-6f):F1} ms");
-        sb.AppendLine($"GC Memory: {gcMemoryRecorder.LastValue / (1024 * 1024)} MB");
-        sb.AppendLine($"System Memory: {systemMemoryRecorder.LastValue / (1024 * 1024)} MB");
-        sb.AppendLine($"Draw Calls: {drawCallsCountRecorder.LastValue}");
-        sb.AppendLine($"Vertices Count: {vertices.LastValue}");
-        sb.AppendLine($"Triangles Count: {triangles.LastValueAsDouble}");
-        statsText = sb.ToString();
+        if(Input.GetKey(KeyCode.F9))
+        {
+
+            var sb = new StringBuilder(500);
+            sb.AppendLine($"Frame Time: {GetRecorderFrameAverage(mainThreadTimeRecorder) * (1e-6f):F1} ms");
+            sb.AppendLine($"GC Memory: {gcMemoryRecorder.LastValue / (1024 * 1024)} MB");
+            sb.AppendLine($"System Memory: {systemMemoryRecorder.LastValue / (1024 * 1024)} MB");
+            sb.AppendLine($"Draw Calls: {drawCallsCountRecorder.LastValue}");
+            sb.AppendLine($"Vertices Count: {vertices.LastValue}");
+            sb.AppendLine($"Triangles Count: {triangles.LastValueAsDouble}");
+            statsText = sb.ToString();
+            
+        }
+        else
+        {
+            StartIt();
+        }
+        
     }
 
     void OnGUI()
     {
+        if(Input.GetKey(KeyCode.F9))
+        {
+            GUI.TextArea(new Rect(10, 30, 250, 110), statsText);
+        }
         
-        GUI.TextArea(new Rect(10, 30, 250, 110), statsText);
     }
 }
