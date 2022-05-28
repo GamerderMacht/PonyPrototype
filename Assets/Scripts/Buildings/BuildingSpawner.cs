@@ -33,7 +33,7 @@ public class BuildingSpawner : MonoBehaviour
         if (other.tag == "Player")
         {
             //Wenn das Gebäude wieder weg ist
-            if(this.gameObject.transform.childCount == 0)
+            if(transform.childCount == 0)
             {
                 //man kann wieder platzieren
                 //Die Baustelle ist wieder sichtbar
@@ -62,7 +62,7 @@ public class BuildingSpawner : MonoBehaviour
 
                 meshRenderer.enabled = false;
                 Debug.Log ("Tower Archer placed");
-                Instantiate(placeablePrefabs[0], gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(placeablePrefabs[0], transform.position, transform.rotation, gameObject.transform);
                 hasObjectStanding = true;
                 
                 wheel.weaponWheelSelected = false;
@@ -82,7 +82,7 @@ public class BuildingSpawner : MonoBehaviour
 
                 meshRenderer.enabled = false;
                 Debug.Log ("Tower Mage placed");
-                Instantiate(placeablePrefabs[1], gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(placeablePrefabs[1], transform.position, transform.rotation, gameObject.transform);
                 hasObjectStanding = true;
                 
                 wheel.weaponWheelSelected = false;
@@ -101,7 +101,7 @@ public class BuildingSpawner : MonoBehaviour
 
                 meshRenderer.enabled = false;
                 Debug.Log("Wall placed");
-                Instantiate(placeablePrefabs[0], gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(placeablePrefabs[0], transform.position, transform.rotation, gameObject.transform);
                 hasObjectStanding = true;
                 wheel.weaponWheelSelected = false;
             }
@@ -119,7 +119,7 @@ public class BuildingSpawner : MonoBehaviour
 
                 meshRenderer.enabled = false;
                 Debug.Log("Farm placed");
-                Instantiate(placeablePrefabs[0], gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(placeablePrefabs[0], transform.position, transform.rotation, gameObject.transform);
                 hasObjectStanding = true;
                 wheel.weaponWheelSelected = false;
             }
