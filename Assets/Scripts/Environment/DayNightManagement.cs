@@ -24,43 +24,81 @@ public class DayNightManagement : MonoBehaviour
    [SerializeField] Material nightMaterial;
 
    public static bool itsNight;
+   SkyboxBlender skyboxBlender;
+   bool CR_Running;
+   bool newWave;
    
     void Start()
     {
-        
+        skyboxBlender = GetComponent<SkyboxBlender>();
     }
     void Update()
     {
+
         CameraSolidColorChanger();
 
         if (Preset == null)
         {
-            
             return;
         }
+        SkyBoxAndTime();
+
+        //New Wave at new Day
+        if (TimeOfDay < 1 && TimeOfDay > 0 && !newWave)
+        {
+            newWave = true;
+            ObjectPool.Wave++;
+            Debug.Log("Current wave" + ObjectPool.Wave);
+        }
+    }
+
+    private void SkyBoxAndTime()
+    {
         if (Application.isPlaying)
         {
-            if(TimeOfDay > 18f || TimeOfDay < 6f)
-            {TimeOfDay += Time.deltaTime * nightSpeed;
-            RenderSettings.skybox = nightMaterial;
-            itsNight = true;}
-            else {TimeOfDay += Time.deltaTime * daySpeed;
-            RenderSettings.skybox = dayMaterial;
-            itsNight = false;}
-            
+            //Wenn es Nachts ist
+            if (TimeOfDay > 17f)
+            {
+                newWave = false;
+                TimeOfDay += Time.deltaTime * nightSpeed;
+                //RenderSettings.skybox = nightMaterial;
+                itsNight = true;
+                if (!CR_Running && skyboxBlender.blend != 1)
+                {
+                    CR_Running = true;
+                    StartCoroutine(BlendSkyNight());
+                }
+            }
+            //Wenn es Tags ist
+            else
+            {
+                TimeOfDay += Time.deltaTime * daySpeed;
+                //RenderSettings.skybox = dayMaterial;
+                itsNight = false;
+                StartCoroutine(BlendSkyDay()); 
+            }
+
             TimeOfDay %= 24; //Clamp between 0-24
             UpdateLighting(TimeOfDay / 24f);
         }
         else
         {
             UpdateLighting(TimeOfDay / 24f);
+            skyboxBlender.blend = 0;
         }
+    }
 
-        if(TimeOfDay < 0.01 && TimeOfDay > 0)
-        {
-            ObjectPool.Wave++;
-            Debug.Log("Current wave" + ObjectPool.Wave);
-        }
+    IEnumerator BlendSkyNight()
+    {
+        if(skyboxBlender.blend <=1) skyboxBlender.blend += 0.005f;
+        yield return new WaitForSeconds(0.05f);
+        CR_Running = false;
+    }
+    IEnumerator BlendSkyDay()
+    {
+        if(skyboxBlender.blend >= 0) skyboxBlender.blend -= 0.005f;
+        yield return new WaitForSeconds(0.05f);
+        CR_Running = false;
     }
 
     private void UpdateLighting(float timePercent)

@@ -11,12 +11,16 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] Sprite daySprite;
     [SerializeField] Sprite nightSprite;
     [SerializeField] DayNightManagement dayNightManagement;
-    // Start is called before the first frame update
+
     
+   void Start()
+   {
+       
+   }
 
     void Update()
     {
-        if(slider.value > 18f || slider.value < 6f)
+        if(slider.value > 17f)
         {
             handle.GetComponent<Image>().sprite = nightSprite;
         }
@@ -25,5 +29,10 @@ public class PlayerHUD : MonoBehaviour
             handle.GetComponent<Image>().sprite = daySprite;
         }
         slider.value = dayNightManagement.TimeOfDay;
+
+
+        
     }
+
+    
 }
