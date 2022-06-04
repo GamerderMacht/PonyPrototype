@@ -9,16 +9,23 @@ public class BuildingSpawner : MonoBehaviour
   
     [SerializeField] GameObject[] placeablePrefabs;
     [SerializeField] int[] placeAbleWheelInts;
-    [SerializeField] public int goldCost;
-    [SerializeField] public int techCost;
-    [SerializeField] bool hasObjectStanding;
+    [SerializeField] public int[] goldCost;
+    [SerializeField] public int[] bewohnerCost;
+    [SerializeField] public bool hasObjectStanding;
 
     FPSController player;
     PlayerInventory playerInventory;
     MeshRenderer meshRenderer;
     WheelManager wheel;
     private int weaponID;
+    
+    GameObject levelUpWheel;
     [SerializeField] GameObject[] wheelParts = new GameObject[4];
+    LevelUpSkript levelUpSkript;
+
+    //Sounds
+    public AudioClip audioClip;
+    AudioSource audioSource;
 
 
     private void OnEnable() {
@@ -27,6 +34,8 @@ public class BuildingSpawner : MonoBehaviour
         wheelParts[1] = GameObject.Find("WheelRechts");
         wheelParts[2] = GameObject.Find("WheelUnten");
         wheelParts[3] = GameObject.Find("WheelLinks");
+        audioSource = GetComponent<AudioSource>();
+        
     } 
     private void OnTriggerStay(Collider other)
     {
@@ -49,6 +58,12 @@ public class BuildingSpawner : MonoBehaviour
 
     }
 
+    /* TO DO-----
+
+
+
+
+    */
     private void ChooseTowerToPlace(int id)
     {
         Debug.Log("Choose the Tower");
@@ -56,16 +71,19 @@ public class BuildingSpawner : MonoBehaviour
         switch(id) //Id ist der Wheel Int. 0 = nichts ausgewählt
         {
             case 1: //Case Tower Archer
-            if(playerInventory.currentGoldAmount >= goldCost)
+            if(playerInventory.currentGoldAmount >= goldCost[0] && playerInventory.currentCitizenAmount >= 2)
             {
-                playerInventory.currentGoldAmount -= goldCost;
-
+                playerInventory.currentGoldAmount -= goldCost[0];
+                playerInventory.currentCitizenAmount -= 2;
+                
+                audioSource.PlayOneShot(audioClip);
                 meshRenderer.enabled = false;
                 Debug.Log ("Tower Archer placed");
                 Instantiate(placeablePrefabs[0], transform.position, transform.rotation, gameObject.transform);
                 hasObjectStanding = true;
                 
                 wheel.weaponWheelSelected = false;
+                levelUpSkript.currentLevel +=1;
             }
             else
             {
@@ -76,16 +94,20 @@ public class BuildingSpawner : MonoBehaviour
             break;
 
             case 2: //Case Tower mage
-            if(playerInventory.currentGoldAmount >= goldCost)
+            if(playerInventory.currentGoldAmount >= goldCost[1] && playerInventory.currentCitizenAmount >= 2)
             {
-                playerInventory.currentGoldAmount -= goldCost;
+                playerInventory.currentGoldAmount -= goldCost[1];
+                playerInventory.currentCitizenAmount -= 2;
 
+
+                audioSource.PlayOneShot(audioClip);
                 meshRenderer.enabled = false;
                 Debug.Log ("Tower Mage placed");
                 Instantiate(placeablePrefabs[1], transform.position, transform.rotation, gameObject.transform);
                 hasObjectStanding = true;
                 
                 wheel.weaponWheelSelected = false;
+                levelUpSkript.currentLevel +=1;
             }
             else
             {
@@ -95,15 +117,18 @@ public class BuildingSpawner : MonoBehaviour
             break;
 
             case 3: //Case Wall 
-            if(playerInventory.currentGoldAmount >= goldCost)
+            if(playerInventory.currentGoldAmount >= goldCost[0])
             {
-                playerInventory.currentGoldAmount -= goldCost;
+                playerInventory.currentGoldAmount -= goldCost[0];
 
+
+                audioSource.PlayOneShot(audioClip);
                 meshRenderer.enabled = false;
                 Debug.Log("Wall placed");
                 Instantiate(placeablePrefabs[0], transform.position, transform.rotation, gameObject.transform);
                 hasObjectStanding = true;
                 wheel.weaponWheelSelected = false;
+                levelUpSkript.currentLevel +=1;
             }
             else
             {
@@ -113,15 +138,19 @@ public class BuildingSpawner : MonoBehaviour
             
             break;
             case 4: //Case Farm
-            if(playerInventory.currentGoldAmount >= goldCost)
+            if(playerInventory.currentGoldAmount >= goldCost[0] && playerInventory.currentCitizenAmount >= 1)
             {
-                playerInventory.currentGoldAmount -= goldCost;
+                playerInventory.currentGoldAmount -= goldCost[0];
+                playerInventory.currentCitizenAmount -= 1;
 
+
+                audioSource.PlayOneShot(audioClip);
                 meshRenderer.enabled = false;
                 Debug.Log("Farm placed");
                 Instantiate(placeablePrefabs[0], transform.position, transform.rotation, gameObject.transform);
                 hasObjectStanding = true;
                 wheel.weaponWheelSelected = false;
+                levelUpSkript.currentLevel +=1;
             }
             else
             {
@@ -138,6 +167,7 @@ public class BuildingSpawner : MonoBehaviour
     {
     if (other.tag == "Player" && !hasObjectStanding)
     {
+        levelUpSkript = GetComponent<LevelUpSkript>();
         //Nimmt die Components vom Spieler
         player = GameObject.Find("Player").GetComponent<FPSController>();
         playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
@@ -152,8 +182,9 @@ public class BuildingSpawner : MonoBehaviour
         }
         wheelParts[placeAbleWheelInts[0] - 1].GetComponent<Button>().interactable = true;
         if(placeAbleWheelInts.Length > 1) wheelParts[placeAbleWheelInts[1] - 1].GetComponent<Button>().interactable = true;
-           
-        
+
+        if(levelUpWheel == null) levelUpWheel = GameObject.Find("WheelLevelUp");   
+        levelUpWheel.SetActive(false);
         wheel.weaponWheelSelected = true;
     }
     }
@@ -163,8 +194,9 @@ public class BuildingSpawner : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            levelUpWheel.SetActive(true);
             wheel.weaponWheelSelected = false;
-            if(hasObjectStanding) GetComponent<BoxCollider>().enabled = false;
+            
             
         }
     }

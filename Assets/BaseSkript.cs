@@ -21,7 +21,7 @@ public class BaseSkript : MonoBehaviour
            {
                uIEndScreen = GameObject.Find("UI").GetComponent<UIEndScreen>();
                //GameOverScreen
-               uIEndScreen.GameLost();
+               //uIEndScreen.GameLost();
            }
            
        }

@@ -13,7 +13,7 @@ public class UIEndScreen : MonoBehaviour
 
     public void GameLost()
     {
-        gameLostScreen.SetActive(true);
+        //gameLostScreen.SetActive(true);
     }
 
 
