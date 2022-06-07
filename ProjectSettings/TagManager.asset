@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - Tower
   - Wall
+  - LevelUpSystem
+  - Base
   layers:
   - Default
   - TransparentFX

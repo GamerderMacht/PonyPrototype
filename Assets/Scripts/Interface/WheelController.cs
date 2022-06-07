@@ -11,7 +11,7 @@ public class WheelController : MonoBehaviour
     private Animator anim;
     public string itemName;
     public TextMeshProUGUI itemText;
-    public Image selectedItem;
+    
     bool selected = false;
     public Sprite icon;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class WheelController : MonoBehaviour
     {
         if(selected)
         {
-            selectedItem.sprite = icon;
+            
             itemText.text = itemName;
         }
        
