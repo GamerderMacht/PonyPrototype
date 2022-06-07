@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitSpeed: 150
+  castle: {fileID: 0}
   spawnBoostSpeed: 300
   target: {fileID: 0}
   RotationSpeed: 0.5

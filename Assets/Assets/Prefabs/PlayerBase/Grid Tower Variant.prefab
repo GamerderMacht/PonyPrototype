@@ -88,8 +88,32 @@ PrefabInstance:
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: goldCost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: wheelParts.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: goldCost.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: goldCost.Array.data[1]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: bewohnerCost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: bewohnerCost.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: bewohnerCost.Array.data[1]
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971054, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: placeablePrefabs.Array.size
@@ -141,3 +165,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b583fa641dc686499154690463e2322, type: 3}
+--- !u!1 &1716631407966201422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7087387049197971041, guid: 7b583fa641dc686499154690463e2322, type: 3}
+  m_PrefabInstance: {fileID: 8469520287044239407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2542312326438784200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716631407966201422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e22ef44c0f4442499175b0416673977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 2
+  levelUpGoldCost: 64000000c8000000
+  isDestroyable: 0
+  prefabUpgradedTowers:
+  - {fileID: 5573759049568141702, guid: 740e51761b7acbf40850d2c340857de3, type: 3}
+  - {fileID: 5573759049568141702, guid: 740e51761b7acbf40850d2c340857de3, type: 3}
+  prefabMageTowers:
+  - {fileID: 2091121127561372219, guid: d9f59172f3d6188458786ad5f6497439, type: 3}
+  - {fileID: 2091121127561372219, guid: d9f59172f3d6188458786ad5f6497439, type: 3}
+  wheelsInteger: 0100000002000000
+  wheelParts:
+  - {fileID: 0}
+  - {fileID: 0}
+  wheelManager: {fileID: 0}
+  playerInventory: {fileID: 0}
+  upgradeSound: {fileID: 8300000, guid: dfae3bddf6a2c20409f6ee051a91f182, type: 3}
+  destroySound: {fileID: 8300000, guid: e930b8f86e4e91342a99b215ac75abe4, type: 3}

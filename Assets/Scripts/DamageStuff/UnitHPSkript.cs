@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UnitHPSkript : MonoBehaviour
 {
+    [SerializeField] ScoreScript scoreScript;
 public int maxHealth;
 public int wavebonusHP; 
 public int currentHealth;
@@ -12,6 +13,7 @@ public int currentHealth;
         
     void Start()
     {
+        scoreScript = GameObject.Find("PlayerHUD").GetComponent<ScoreScript>();
         if(gameObject.tag == "Enemy")
         {
             wavebonusHP = ObjectPool.Wave * 5;
@@ -30,7 +32,10 @@ public int currentHealth;
         {
             //Objekt ist Tod / kaputt
             Debug.Log("Tod");
+            scoreScript.score += 10 * ObjectPool.Wave;
             Destroy(gameObject, 0.5f);
+            
+
         }
     }
 }

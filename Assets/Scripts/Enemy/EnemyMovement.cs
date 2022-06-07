@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody rbEnemy;
     [SerializeField] float unitSpeed;
+    
 
     float currentSpeed;
     public float spawnBoostSpeed;
@@ -19,12 +20,13 @@ public class EnemyMovement : MonoBehaviour
     //values that will be set in the Inspector
      public Transform target;
      public float RotationSpeed;  
+
   
      
 void Start()
 {
     rbEnemy = GetComponent<Rigidbody>();
-    target = GameObject.Find("Castle").transform;
+    target = GameObject.Find("PlayerBase").transform;
 }
 
     void Update()
@@ -70,7 +72,7 @@ void Start()
         if (target == null)
         {
             
-            target = GameObject.Find("Castle").transform;
+            target = GameObject.Find("PlayerBase").transform;
 
         }
     }

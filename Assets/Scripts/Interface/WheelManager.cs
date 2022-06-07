@@ -13,8 +13,7 @@ public class WheelManager : MonoBehaviour
     //public int wepID;
 
 
-    public Image selectedItem;
-    public Sprite noImage;
+   
     public static int weaponID;
 
     void Update()
@@ -47,7 +46,7 @@ public class WheelManager : MonoBehaviour
         switch(weaponID)
         {
             case 0: //nothing selected
-                selectedItem.sprite = noImage;
+                
                 break;
             case 1: 
             Debug.Log("WheelOben");
