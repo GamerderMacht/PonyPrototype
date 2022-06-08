@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 1607493947849734273}
   - component: {fileID: 4604682069923838400}
   - component: {fileID: -6123501121158063799}
+  - component: {fileID: 6536448050318754089}
   m_Layer: 0
   m_Name: Tower_Mage001
   m_TagString: Tower
@@ -271,9 +272,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 0}
   maxHealth: 100
   wavebonusHP: 0
   currentHealth: 0
+--- !u!114 &6536448050318754089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091121127561372219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd5e5ddd242bd64581fb5ed9c0e0507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PolyMesh:
+    name: 
+    vertices: []
+    normals: []
+    colors: []
+    tangents: []
+    uv0: []
+    uv1: []
+    uv2: []
+    uv3: []
+    m_Triangles: 
+    m_SubMeshes: []
+    m_Mesh: {fileID: 0}
+  m_SkinMeshRef: {fileID: 0}
+  m_OriginalMeshObject: {fileID: 0}
+  m_Mode: 0
 --- !u!1001 &1606521291047277462
 PrefabInstance:
   m_ObjectHideFlags: 0
