@@ -319,7 +319,7 @@ MonoBehaviour:
     name: Relic
   - gameObject: {fileID: 6162264286693067124, guid: 2680f0d91b132934fbfb18a850c1751b, type: 3}
     settings:
-      m_Strength: 21.25
+      m_Strength: 14.5
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -383,7 +383,7 @@ MonoBehaviour:
     name: Tree3
   - gameObject: {fileID: 7292868190779537865, guid: 55c26629246b0e643a0fda517a255f20, type: 3}
     settings:
-      m_Strength: 70.75
+      m_Strength: 57.25
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
