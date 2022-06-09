@@ -46,10 +46,21 @@ public class LevelUpSkript : MonoBehaviour
         
         if (other.tag == "Player")
         {
-            if(buildingSpawner.hasObjectStanding)
+            if(gameObject.tag == "Grid")
+            {
+                Debug.Log("grid entered");
+                if(buildingSpawner.hasObjectStanding)
+                {
+                    Debug.Log("wheelhud aus");
+                    wheelHud.SetActive(false);
+                }
+            }
+            if(gameObject.tag == "Base")
             {
                 wheelHud.SetActive(false);
             }
+            
+            
             
             
             if(isDestroyable)
@@ -60,21 +71,39 @@ public class LevelUpSkript : MonoBehaviour
             {
                 wheelParts[1].GetComponent<Button>().interactable = false;
             }
+            if(currentLevel == maxLevel)
+            {
+                wheelParts[0].GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                wheelParts[0].GetComponent<Button>().interactable = true;
+            }
             wheelManager.weaponWheelSelected = true;
         }
         
     }
     void OnTriggerStay(Collider other)
     {
-        ChooseTowerToPlace(WheelManager.weaponID);
+        if(other.tag == "Player")ChooseTowerToPlace(WheelManager.weaponID);
+        
         
     }
     void OnTriggerExit(Collider other)
     {
         if(other.tag == "Player")
         {
-            if(buildingSpawner.hasObjectStanding) wheelHud.SetActive(true);
-            wheelManager.weaponWheelSelected = false;
+            if(tag == "Base")
+            {
+                wheelManager.weaponWheelSelected = false;
+                wheelHud.SetActive(true);
+            }
+            else
+            {
+                wheelManager.weaponWheelSelected = false;
+                wheelHud.SetActive(true);
+            }
+            
         }
         
     }
@@ -89,58 +118,125 @@ public class LevelUpSkript : MonoBehaviour
             case 1: //UPGRADES PEOPLE UPGRADES
                 if(currentLevel < maxLevel)
                 {
-                    Debug.Log("yeaaaa");
-                    if(playerInventory.currentGoldAmount >= levelUpGoldCost[currentLevel])
+                    if(!wheelHud.activeInHierarchy)
                     {
-                        playerInventory.currentGoldAmount -= levelUpGoldCost[currentLevel];
+                        Debug.Log("yeaaaa");
+                        if(playerInventory.currentGoldAmount >= levelUpGoldCost[currentLevel])
                         {
-                            audioSource.PlayOneShot(upgradeSound);
-                            Debug.Log ("Tower Upgraded");
-                            //Destroy(gameObject.transform.GetChild(0));
-                            currentLevel++;
-                            //TODO: change Child for upgrade
-                            wheelManager.weaponWheelSelected = false;
+                            playerInventory.currentGoldAmount -= levelUpGoldCost[currentLevel];
+                            if(gameObject.transform.GetChild(0).tag == "Tower")
+                            { 
+                                if(gameObject.transform.GetChild(0).GetComponent<ShootController>().bulletSpawner.name == "Crystal")
+                                {
+                                    Debug.Log("Eier flattern");
+                                    if(gameObject.transform.childCount > 0) Destroy(gameObject.transform.GetChild(0).gameObject);
+                                    Instantiate(prefabMageTowers[currentLevel], transform.position, transform.rotation, gameObject.transform);
+                                    audioSource.PlayOneShot(upgradeSound);
+                                    currentLevel++;
+                                    wheelManager.weaponWheelSelected = false;
+                                }
+                                else
+                                {
+                                    audioSource.PlayOneShot(upgradeSound);
+                                    Debug.Log ("Tower Upgraded");
+                                    if(gameObject.transform.childCount > 0) Destroy(gameObject.transform.GetChild(0).gameObject);
+                                    
+                                    Instantiate(prefabUpgradedTowers[currentLevel], transform.position, transform.rotation, gameObject.transform);
+                                    currentLevel++;
+                                    //TODO: change Child for upgrade
+                                    wheelManager.weaponWheelSelected = false;
+                                
+                                }
+                            }
+                            else if(gameObject.transform.GetChild(0).tag == "Wall")
+                            {
+                                Debug.Log("Wall flattern");
+                                if(gameObject.transform.childCount > 0) Destroy(gameObject.transform.GetChild(0).gameObject);
+                                Instantiate(prefabUpgradedTowers[currentLevel], transform.position, transform.rotation, gameObject.transform);
+                                audioSource.PlayOneShot(upgradeSound);
+                                currentLevel++;
+                                wheelManager.weaponWheelSelected = false;
+                            }
+                            else if(gameObject.tag == "Base")
+                            {
+                                audioSource.PlayOneShot(upgradeSound);
+                                Debug.Log ("Base Upgraded");
+                                if(gameObject.transform.childCount > 0) Destroy(gameObject.transform.GetChild(1).gameObject);
+                                
+                                Instantiate(prefabUpgradedTowers[currentLevel], transform.position, transform.rotation, gameObject.transform);
+                                currentLevel++;
+                                
+                                wheelManager.weaponWheelSelected = false;
+                            }
+                            else
+                            {
+                                audioSource.PlayOneShot(upgradeSound);
+                                Debug.Log ("Base Upgraded");
+                                if(gameObject.transform.childCount > 0) Destroy(gameObject.transform.GetChild(0).gameObject);
+                                
+                                Instantiate(prefabUpgradedTowers[currentLevel], transform.position, transform.rotation, gameObject.transform);
+                                currentLevel++;
+                                
+                                wheelManager.weaponWheelSelected = false;
+                            }
+                            
+                            
+                            
+
+                            if(gameObject.tag == "Base")
+                            {
+                                playerInventory.maxCitizenAmount += (currentLevel ) * 10;
+                                playerInventory.currentCitizenAmount += 10 * currentLevel;
+                                audioSource.PlayOneShot(upgradeSound);
+                                wheelManager.weaponWheelSelected = false;
+
+                            } 
+                            
                             
                         }
-                        
-
-                        if(gameObject.tag == "Base")
+                        else
                         {
-                            playerInventory.maxCitizenAmount = (currentLevel + 1) * 5;
-                            playerInventory.currentCitizenAmount +=5;
-                            audioSource.PlayOneShot(upgradeSound);
+                            //ADD UI IMAGE MIT TEXT ZU WENIG CASH
+                            Debug.Log("nicht genug Cash :(");
                             wheelManager.weaponWheelSelected = false;
-
-                        } 
-                        
-                        
+                        }
                     }
-                    else
-                    {
-                        //ADD UI IMAGE MIT TEXT ZU WENIG CASH
-                        Debug.Log("nicht genug Cash :(");
-                        wheelManager.weaponWheelSelected = false;
-                    }
+                    
                 }
             break;
 
             case 2: //Destroy Object
             
-                playerInventory.currentGoldAmount += levelUpGoldCost[currentLevel];
+                if(!wheelHud.activeInHierarchy)
+                {
 
-                audioSource.PlayOneShot(destroySound);
-                Debug.Log ("Building destroyed");
-                foreach(GameObject child in prefabUpgradedTowers)
-                {
-                    Destroy(child);
+                
+                    playerInventory.currentGoldAmount += levelUpGoldCost[currentLevel - 1];
+
+                    audioSource.PlayOneShot(destroySound);
+                    Debug.Log ("Building destroyed");
+                    if(tag == "Base")
+                    {
+                        Destroy(gameObject.transform.GetChild(1).gameObject);
+                    }
+                    else
+                    {
+                        foreach(GameObject child in prefabUpgradedTowers)
+                        {
+                            Destroy(gameObject.transform.GetChild(0).gameObject);
+                        }
+                    }
+                    
+                    currentLevel = 0; playerInventory.currentCitizenAmount += buildingSpawner.bewohnerCost[0];
+                    if(!GetComponent<MeshRenderer>().enabled)
+                    {
+                        gameObject.GetComponent<MeshRenderer>().enabled = true;
+                    } 
+                    
+                    
+                    wheelManager.weaponWheelSelected = false;
+                    wheelHud.SetActive(true);
                 }
-                if(!GetComponent<MeshRenderer>().enabled)
-                {
-                    gameObject.GetComponent<MeshRenderer>().enabled = true;
-                } 
-                
-                
-                wheelManager.weaponWheelSelected = false;
             break;
 
          

@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - LevelUpSystem
   - Base
+  - Grid
   layers:
   - Default
   - TransparentFX

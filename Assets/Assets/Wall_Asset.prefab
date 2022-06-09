@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 0}
   maxHealth: 250
   wavebonusHP: 0
   currentHealth: 0
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 0}
   maxHealth: 250
   wavebonusHP: 0
   currentHealth: 0
@@ -397,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 0}
   maxHealth: 250
   wavebonusHP: 0
   currentHealth: 0
@@ -513,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 0}
   maxHealth: 500
   wavebonusHP: 0
   currentHealth: 0
@@ -625,6 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 0}
   maxHealth: 250
   wavebonusHP: 0
   currentHealth: 0
@@ -737,6 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90273c13983216d4c954393bfcdfecbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 0}
   maxHealth: 250
   wavebonusHP: 0
   currentHealth: 0

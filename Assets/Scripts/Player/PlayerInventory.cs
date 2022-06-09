@@ -53,10 +53,10 @@ public class PlayerInventory : MonoBehaviour
     }
     public void AddCitizenToInventory(int citizenAmount)
     {
-        currentTechAmount += citizenAmount;
+        currentCitizenAmount += citizenAmount;
 
 
-        techAmountText[0].text = citizenAmount.ToString();
+        citizenAmountText[0].text = citizenAmount.ToString();
         if(citizenAmountText.Length > 1) citizenAmountText[1].text = currentCitizenAmount.ToString();
     }
 
