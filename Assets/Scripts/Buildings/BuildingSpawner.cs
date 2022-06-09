@@ -17,6 +17,7 @@ public class BuildingSpawner : MonoBehaviour
     PlayerInventory playerInventory;
     MeshRenderer meshRenderer;
     WheelManager wheel;
+    
     private int weaponID;
     
     GameObject levelUpWheel;
@@ -66,7 +67,7 @@ public class BuildingSpawner : MonoBehaviour
     */
     private void ChooseTowerToPlace(int id)
     {
-        Debug.Log("Choose the Tower");
+        
         
         switch(id) //Id ist der Wheel Int. 0 = nichts ausgewählt
         {
@@ -83,7 +84,7 @@ public class BuildingSpawner : MonoBehaviour
                 hasObjectStanding = true;
                 
                 wheel.weaponWheelSelected = false;
-                levelUpSkript.currentLevel +=1;
+                levelUpSkript.currentLevel++;
             }
             else
             {
@@ -98,8 +99,7 @@ public class BuildingSpawner : MonoBehaviour
             {
                 playerInventory.currentGoldAmount -= goldCost[1];
                 playerInventory.currentCitizenAmount -= 2;
-
-
+                
                 audioSource.PlayOneShot(audioClip);
                 meshRenderer.enabled = false;
                 Debug.Log ("Tower Mage placed");
@@ -107,7 +107,7 @@ public class BuildingSpawner : MonoBehaviour
                 hasObjectStanding = true;
                 
                 wheel.weaponWheelSelected = false;
-                levelUpSkript.currentLevel +=1;
+                levelUpSkript.currentLevel++;
             }
             else
             {
@@ -173,6 +173,8 @@ public class BuildingSpawner : MonoBehaviour
         playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
         wheel = GameObject.Find("WheelHUD").GetComponent<WheelManager>();
         
+
+        
       
         //Für das Wheel. Macht bei TriggerEnter das Wheel nicht interactable, dann geht es durch alle durch. Wenn im Inspector die int Zahl steht, dann wird dieser Wheelpart
         //interactable. So die Theorie... :)
@@ -183,7 +185,7 @@ public class BuildingSpawner : MonoBehaviour
         wheelParts[placeAbleWheelInts[0] - 1].GetComponent<Button>().interactable = true;
         if(placeAbleWheelInts.Length > 1) wheelParts[placeAbleWheelInts[1] - 1].GetComponent<Button>().interactable = true;
 
-        if(levelUpWheel == null) levelUpWheel = GameObject.Find("WheelLevelUp");   
+        levelUpWheel = GameObject.Find("WheelLevelUp");   
         levelUpWheel.SetActive(false);
         wheel.weaponWheelSelected = true;
     }
@@ -197,7 +199,7 @@ public class BuildingSpawner : MonoBehaviour
             levelUpWheel.SetActive(true);
             wheel.weaponWheelSelected = false;
             
-            
+            levelUpWheel.SetActive(true);
         }
     }
 

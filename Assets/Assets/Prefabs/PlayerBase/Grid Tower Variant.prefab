@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7087387049197971041, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_Name
-      value: Grid Tower Variant
+      value: TESTING TOWER
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971041, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29,31 +29,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 36.94
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 348.54
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -12.87
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99246216
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.041286327
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.115387626
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -185,13 +185,13 @@ MonoBehaviour:
   currentLevel: 0
   maxLevel: 2
   levelUpGoldCost: 64000000c8000000
-  isDestroyable: 0
+  isDestroyable: 1
   prefabUpgradedTowers:
   - {fileID: 5573759049568141702, guid: 740e51761b7acbf40850d2c340857de3, type: 3}
-  - {fileID: 5573759049568141702, guid: 740e51761b7acbf40850d2c340857de3, type: 3}
+  - {fileID: 5573759049568141702, guid: 593f67c35ac896c4abb4127fe5606086, type: 3}
   prefabMageTowers:
   - {fileID: 2091121127561372219, guid: d9f59172f3d6188458786ad5f6497439, type: 3}
-  - {fileID: 2091121127561372219, guid: d9f59172f3d6188458786ad5f6497439, type: 3}
+  - {fileID: 2091121127561372219, guid: 1f05250a01665df4a9d46eed1bb539e2, type: 3}
   wheelsInteger: 0100000002000000
   wheelParts:
   - {fileID: 0}

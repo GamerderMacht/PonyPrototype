@@ -49,19 +49,19 @@ public class WheelManager : MonoBehaviour
                 
                 break;
             case 1: 
-            Debug.Log("WheelOben");
+            //Debug.Log("WheelOben");
                 
                 break;
             case 2: 
-            Debug.Log("WheelRechts");
+            //Debug.Log("WheelRechts");
                 
                 break;
             case 3: 
-            Debug.Log("WheelUnten");
+            //Debug.Log("WheelUnten");
                
                 break;
             case 4: 
-            Debug.Log("WheelLink");
+            //Debug.Log("WheelLink");
                 
                 break;
             

@@ -7,9 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6741338408308789059, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741338408308789059, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971041, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_Name
-      value: Grid Farm Variant
+      value: TESTING FARM
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971041, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: m_TagString
+      value: Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087387049197971041, guid: 7b583fa641dc686499154690463e2322, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_RootOrder
@@ -25,23 +41,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 59.1
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 345
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.6
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9924622
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.073003866
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.y
@@ -49,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.09843422
       objectReference: {fileID: 0}
     - target: {fileID: 7087387049197971050, guid: 7b583fa641dc686499154690463e2322, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -144,11 +160,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   maxLevel: 2
-  levelUpGoldCost: 0a00000014000000
+  levelUpGoldCost: 0a000000c8000000
   isDestroyable: 1
   prefabUpgradedTowers:
   - {fileID: 818533379726093117, guid: 7c1c5f637b093bd499d8372eeffb4bcc, type: 3}
-  - {fileID: 818533379726093117, guid: 7c1c5f637b093bd499d8372eeffb4bcc, type: 3}
+  - {fileID: 818533379726093117, guid: 73298a029c6f16242b3d48a645baf20a, type: 3}
   prefabMageTowers: []
   wheelsInteger: 0100000002000000
   wheelParts:
