@@ -223,7 +223,7 @@ MonoBehaviour:
     name: RockE6
   - gameObject: {fileID: 3680265249457919332, guid: 4dcc4eaf7fb1b4840a934b134a632993, type: 3}
     settings:
-      m_Strength: 72.5
+      m_Strength: 25.25
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -239,7 +239,7 @@ MonoBehaviour:
     name: Gras2
   - gameObject: {fileID: 2491949935823592344, guid: c4c36d90d8c920c40b9d4daa772f5d5c, type: 3}
     settings:
-      m_Strength: 77
+      m_Strength: 14.5
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -255,7 +255,7 @@ MonoBehaviour:
     name: Gras1
   - gameObject: {fileID: 1489786962798360326, guid: 352c5eafb94fc2a429c875bd113708f9, type: 3}
     settings:
-      m_Strength: 97.75
+      m_Strength: 55
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 180, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -271,7 +271,7 @@ MonoBehaviour:
     name: Felsen3
   - gameObject: {fileID: 4671087180208384781, guid: 2fd304874d1bba046add4cd6cf3b1883, type: 3}
     settings:
-      m_Strength: 14.5
+      m_Strength: 32.5
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -287,7 +287,7 @@ MonoBehaviour:
     name: Felsen2
   - gameObject: {fileID: 5272405313009659351, guid: ddfa870b627ce29489ab7e2c74377455, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 50.5
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -319,12 +319,12 @@ MonoBehaviour:
     name: Relic
   - gameObject: {fileID: 6162264286693067124, guid: 2680f0d91b132934fbfb18a850c1751b, type: 3}
     settings:
-      m_Strength: 14.5
+      m_Strength: 12.25
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1, y: 1}
+      m_UniformScale: {x: 0.75, y: 1}
       m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
     name: Tree1
   - gameObject: {fileID: 1766937284616314332, guid: f1541f017e41ec44e9a9dd2f305df3e1, type: 3}
     settings:
-      m_Strength: 66.25
+      m_Strength: 50.5
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -388,7 +388,7 @@ MonoBehaviour:
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1, y: 1}
+      m_UniformScale: {x: 0.8, y: 1.2}
       m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1, y: 1}
+      m_UniformScale: {x: 0.8, y: 1.2}
       m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 0
@@ -477,3 +477,19 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: Lampe
+  - gameObject: {fileID: 5951548791203312466, guid: ca8128dbb90a29c489d07563174b35a0, type: 3}
+    settings:
+      m_Strength: 11.75
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Mushroom1
