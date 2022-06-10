@@ -55,7 +55,8 @@ public class FPSController : MonoBehaviour {
     }
     void LateUpdate()
     {
-        PlayerMovement();
+        if(!PauseMenu.GameIsPaused) PlayerMovement();
+        
     }
 
     
