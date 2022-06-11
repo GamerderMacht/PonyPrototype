@@ -6,87 +6,102 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-
-
-   
-
     Rigidbody rbEnemy;
     [SerializeField] float unitSpeed;
-    
 
-    float currentSpeed;
+    float currentSpeed;    
+    public float RotationSpeed;
     public float spawnBoostSpeed;
 
-    //values that will be set in the Inspector
-     public Transform target;
-     public float RotationSpeed;  
+    private GameObject target = null;
+    public float range = 20;
 
-  
-     
-void Start()
-{
-    rbEnemy = GetComponent<Rigidbody>();
-    target = GameObject.Find("PlayerBase").transform;
-}
+    [Header("Shooting")]
+    float fireRate = 1f;
+    float fireCooldown = 0f;
+    public GameObject projectile;
+    public Transform bulletSpawner;
 
+
+    private void Awake()
+    {
+        target = GameObject.Find("PlayerBase");
+        UpdateTarget();
+    }
+    void Start()
+    {
+        rbEnemy = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         MovementSpeed();
-        CheckForTarget();
-    }
-
-   
-    
+    }  
     void FixedUpdate()
     {
         MovingAndRotation();
+        UpdateTarget();
     }
 
     private void MovingAndRotation()
     {
-        var lookPos = target.position - transform.position;
+        var lookPos = target.transform.position - transform.position;
         lookPos.y = 0;
+
         var rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
 
-        //move the enemy with velocity v1.0
         rbEnemy.AddRelativeForce(Vector3.forward * currentSpeed);
-    }
 
-
-    void OnTriggerEnter(Collider other)
-    {
-        
-        if(other.tag == "Tower")
+        if (Vector3.Distance(transform.position, target.transform.position) < range)
         {
-            target = other.gameObject.transform;
-        }
-        if(other.tag == "Wall")
-        {
-            target = other.gameObject.transform;
-        }
-    }
+            rbEnemy.AddRelativeForce(Vector3.back * currentSpeed);
 
-     private void CheckForTarget()
-    {
-        if (target == null)
-        {
-            
-            target = GameObject.Find("PlayerBase").transform;
-
+            if (fireCooldown <= 0f)
+            {
+                Shoot();
+                fireCooldown = 1f / fireRate;
+            }
+            fireCooldown -= Time.deltaTime;
         }
     }
 
     private void MovementSpeed()
     {
         if (transform.position.y < 0)
-        {
             currentSpeed = spawnBoostSpeed;
-        }
         else
-        {
             currentSpeed = unitSpeed;
-        }
     }
-   
+
+    void UpdateTarget()
+    {
+        GameObject[] allTargets = GameObject.FindGameObjectsWithTag("Base");
+        GameObject nearestTarget = null;
+        float shortestDistance = Mathf.Infinity;
+
+        foreach(GameObject target in allTargets)
+        {
+            float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+            if(distanceToTarget < shortestDistance)
+            {
+                shortestDistance = distanceToTarget;
+                nearestTarget = target;
+            }
+        }
+        target = nearestTarget;
+    }
+
+    void Shoot()
+    {
+        GameObject bulletGO = (GameObject)Instantiate(projectile, bulletSpawner.transform.position, bulletSpawner.transform.rotation);         
+        Projectile bulletScript = bulletGO.GetComponent<Projectile>();
+
+        if (bulletScript != null)
+            bulletScript.Seek(target);                                                                                                  
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
 }
