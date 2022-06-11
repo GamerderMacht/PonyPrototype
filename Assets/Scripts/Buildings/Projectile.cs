@@ -14,10 +14,11 @@ public class Projectile : MonoBehaviour
     public float aoERange = 5;
 
     UnitHPSkript hPSkript;
-                                                                                             /*
-                                                                                              * Enemies werden in ShootController.cs getrackt 
-                                                                                              * und ueber Seek() an Projectile.cs gepassed
-                                                                                              */
+
+    /*
+     * Enemies werden in ShootController.cs getrackt 
+     * und ueber Seek() an Projectile.cs gepassed
+     */
     public void Seek(GameObject _target)
     {
         target = _target;
@@ -56,11 +57,11 @@ public class Projectile : MonoBehaviour
             HitShit(target);
         
         
-                                                                                             /*
-                                                                                              * fuer Multi target 
-                                                                                              * alle collider in der AoERange werden in allCollider gespeichert
-                                                                                              * 
-                                                                                              */
+       /*
+        * fuer Multi target 
+        * alle collider in der AoERange werden in allCollider gespeichert
+        * 
+        */
 
         if (direction.magnitude <= speedProFrame && isAoEProjectile == true)
         {

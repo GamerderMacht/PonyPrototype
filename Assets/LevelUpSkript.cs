@@ -48,7 +48,6 @@ public class LevelUpSkript : MonoBehaviour
         {
             if(gameObject.tag == "Grid")
             {
-                Debug.Log("grid entered");
                 if(buildingSpawner.hasObjectStanding)
                 {
                     Debug.Log("wheelhud aus");
@@ -110,8 +109,6 @@ public class LevelUpSkript : MonoBehaviour
 
      private void ChooseTowerToPlace(int id)
     {
-        Debug.Log("Choose the Tower333333");
-        
         switch(id) //Id ist der Wheel Int. 0 = nichts ausgewählt
         {
             

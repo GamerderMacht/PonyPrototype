@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class UnitHPSkript : MonoBehaviour
 {
     [SerializeField] ScoreScript scoreScript;
-public int maxHealth;
-public int wavebonusHP; 
-public int currentHealth;
-
+    public int maxHealth;
+    public int wavebonusHP; 
+    public int currentHealth;
+    
         
     void Start()
     {
@@ -19,8 +19,7 @@ public int currentHealth;
             wavebonusHP = ObjectPool.Wave * 5;
             maxHealth = maxHealth + wavebonusHP;
         } 
-        currentHealth = maxHealth;
-              
+        currentHealth = maxHealth;              
     }
 
     public void DamageTaken(int damageAmount)

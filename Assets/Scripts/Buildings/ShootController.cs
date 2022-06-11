@@ -62,7 +62,7 @@ public class ShootController : MonoBehaviour
             bulletScript.Seek(currentTarget);                                                                                                  //so kann das aktuelle target in das skript von jeder kugel gepassed werden
     }
 
-    private void OnDrawGizmos()                                                                                                                // nur zum visualisieren der range
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(transform.position, range);
