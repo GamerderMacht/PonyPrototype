@@ -11,13 +11,15 @@ public class WheelController : MonoBehaviour
     private Animator anim;
     public string itemName;
     public TextMeshProUGUI itemText;
+    public UpdateTowerStatsSheetUI updateTowerStatsSheetUI;
     
     bool selected = false;
-    public Sprite icon;
+    
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -49,10 +51,13 @@ public class WheelController : MonoBehaviour
         Debug.Log("Hoverd");
         anim.SetBool("Hover", true);
         itemText.text = itemName;
+        updateTowerStatsSheetUI = GetComponent<UpdateTowerStatsSheetUI>();
+        updateTowerStatsSheetUI.HoverEnter(Id);
     }
     public void HoverExit()
     {
         anim.SetBool("Hover", false);
         itemText.text = "";
+        updateTowerStatsSheetUI.HoverExit();
     }
 }
